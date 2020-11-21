@@ -1,15 +1,8 @@
-import React, { Component } from 'react';
+import {Component} from 'react';
 import sudokus from './Difficulty'
 import SudokuGenerator from './SudokuGenerator'
-import Board from './Board'
 
-
-
-
-
-class Game extends Component {
-
-    // set props for app
+export default class Game extends Component {
     constructor(props) {
         super(props)
         this.check = this.check.bind(this)
@@ -17,8 +10,6 @@ class Game extends Component {
         this.help = this.help.bind(this)
         this.handleClick = this.handleClick.bind(this)
     }
-
-    // Generate intital state of the game
     generate(level) {
         var puzzles
         switch (level) {
@@ -66,13 +57,9 @@ class Game extends Component {
             conflict: new Set()
         })
     }
-
-    // default is easy
     componentWillMount() {
         this.generate('easy')
     }
-
-    // find all possible empty squares
     checkPossible(i, j) {
         var values = this.state.values
         var allPossible = new Set([...'123456789'])
@@ -102,8 +89,6 @@ class Game extends Component {
         }
         return allPossible
     }
-
-    // filter for new state
     filter(value) {
         var values = this.state.values
         var filter = new Set()
@@ -120,8 +105,6 @@ class Game extends Component {
             chosen: null
         })
     }
-
-    // highlight rows and columns that correspond to your input field
     highlight(i, j) {
         var values = this.state.values
         var highlight = new Set()
@@ -149,8 +132,6 @@ class Game extends Component {
             filter: new Set()
         })
     }
-
-    // get help if needed
     help() {
         var solution = this.solution,
             values = this.state.values.slice(),
@@ -183,14 +164,11 @@ class Game extends Component {
             })
         }
     }
-    // reset the check for the state
     check() {
         this.setState({
             check: true
         })
     }
-
-    // solve puzzle for user
     solve() {
         if (this.state.peep) {
             return
@@ -209,8 +187,6 @@ class Game extends Component {
         }
 
     }
-
-    // handle click for input position and checks
     handleClick(i, j) {
         var values = this.state.values.slice()
         var thisvalue = values[i].slice()
@@ -229,8 +205,6 @@ class Game extends Component {
             });
         }
     }
-
-    // handle click for number inputs to field
     handleNumsClick(i) {
         if (this.state.peep) { return }
         var chosen = this.state.chosen
@@ -280,49 +254,6 @@ class Game extends Component {
             }
         }
     }
-    render() {
-        var peep = this.state.peep ? ' peep' : ''
-        var checking = this.state.check ? ' checking' : ''
-        var hinttime = [' zero', ' one', ' two', ' three'][this.state.helps]
-        var choices = [...'123456789'].map((i) => {
-            return <button key={i} className="choice" value={i} onClick={() => this.handleNumsClick(i)}>{i}</button>
-        })
-        var controls = ['easy', 'medium', 'hard', 'really hard', 'insane'].map((level, index) => {
-            var active = level === this.state.level ? ' active' : ''
-            return <li key={index} className={"level" + active} onClick={() => this.generate(level)}>{level}</li>
-        })
-        return (
-            <div className="game">
-              
-                <ul className="controls">
-                    {controls}
-                </ul>
-                <div className="main">
-                    <div className="left">
-                        <button className="delete" onClick={() => this.handleNumsClick("X")} />
-                        <div className={"checktext" + checking}>
-                            <p value={this.state.possible}>{this.state.possible}</p>
-                        </div>
-                        <button className="check" onClick={this.check} />
-                    </div>
-                    <Board values={this.state.values}
-                        origin={this.state.origin}
-                        filter={this.state.filter}
-                        conflict={this.state.conflict}
-                        chosen={this.state.chosen}
-                        highlight={this.state.highlight}
-                        onClick={this.handleClick} />
-                    <div className="right">
-                        <button className={"solve" + peep} onClick={this.solve} />
-                        <button className={"hint" + hinttime} onClick={this.help} />
-                    </div>
-                </div>
-                <ul className="choices">
-                    {choices}
-                </ul>
-                
-            </div>
-        );
-    }
 }
-export default Game
+
+    
