@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import sudokus from './Difficulty'
 import SudokuGenerator from './SudokuGenerator'
 import Board from './Board'
-import './index.css'
+
 
 
 
@@ -34,7 +34,7 @@ class Game extends Component {
                 puzzles = sudokus.verytough
                 break
             default:
-                puzzles = sudokus.easy
+                puzzles = sudokus.hell
         }
         var grid = puzzles[Math.floor(Math.random() * puzzles.length)]
             , sudoku = new SudokuGenerator(grid).generate()

@@ -5,7 +5,7 @@ body {
     min-width: 375px;
     overflow: auto;
     font: 12px 'Microsoft YaHei', 'Lucida Grande', Helvetica, Arial, sans-serif;
-    background: url(media/board.jpg) repeat;
+
     user-select: none
 }
 
@@ -60,7 +60,7 @@ button:focus {
     float: left;
     background: rgba(0, 0, 0, 0);
     font-size: 2em;
-    color: #4285f4;
+    color: black;
     padding: 0;
     border-width:0 1px 0 0;
     border-style: dashed;
@@ -87,7 +87,7 @@ button:focus {
 }
 .origin {
     background-color: rgba(200, 200, 200, 0.1);
-    color: #ea4335
+    color: black;
 }
 .origin.highlight {
     background-color: rgba(52, 168, 83, 0.2);
@@ -254,7 +254,7 @@ button:focus {
     width: 30px;
     height: 30px;
     margin: 10px auto 0;
-    background: url(media/info.png);
+
     background-size: 100% 100%;
     cursor: pointer;
 }
@@ -279,7 +279,7 @@ button:focus {
 .code {
     width: 30px;
     height: 30px;
-    background: url(media/code.png);
+    
     background-size: 100% 100%;
     cursor: pointer;
     margin: 20px 0;
