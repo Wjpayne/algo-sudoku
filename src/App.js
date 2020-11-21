@@ -252,7 +252,7 @@ class Game extends Component {
                 }
             )
             if (!this.state.peep && values.toString() === this.solution.toString()) {
-                alert('恭喜你，完成了这个难题！')
+                alert('Congrats!')
                 this.setState({
                     peep: true
                 })
