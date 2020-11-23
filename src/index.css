@@ -298,7 +298,7 @@ button:focus {
 /*for phone or some screen*/
 @media screen and (max-aspect-ratio: 70%) {
     .main {
-        width: 10%;
+        width: 70%;
         height:50.4vw;
     }
     .choices {
