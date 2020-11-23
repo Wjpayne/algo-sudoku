@@ -327,6 +327,10 @@ button:focus {
         font-size: 1.5em;
     }
 }
+.delete::before {
+    font-size: 1.5em;
+
+    }
 @media screen and (max-width: 600px) {
     .check::before {
         font-size: 1em;
