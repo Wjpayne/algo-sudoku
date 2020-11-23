@@ -23,7 +23,7 @@ body {
     position: relative;
     margin: 0 auto;
     width: 50%;
-    min-width: 330px;
+    min-width: 375px;
     height: 36vw;
     min-height: 270px;
 }
@@ -277,7 +277,7 @@ button:focus {
     top: 8%;
     left: 32%;
     width: 32%;
-    min-width: 300px;
+    min-width: 350px;
     background: #FFF;
     padding: 2%;
     display: none
