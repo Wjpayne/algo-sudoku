@@ -57,7 +57,7 @@ export default class Game extends Component {
             conflict: new Set()
         })
     }
-    componentWillMount() {
+    UNSAFE_componentWillMount() {
         this.generate('easy')
     }
     checkPossible(i, j) {

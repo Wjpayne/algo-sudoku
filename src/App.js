@@ -68,7 +68,7 @@ class Game extends Component {
     }
 
     // default is easy
-    componentWillMount() {
+    UNSAFE_componentWillMount() {
         this.generate('easy')
     }
 

@@ -10,20 +10,12 @@ body {
     user-select: none
 }
 
-.logo {
-    position: absolute;
-    top: 20%;
-    left: 8%;
-    width: 20%;
-    height:9vw;
-    transform: rotate(-15deg);
-    opacity:0.4;
-}
+
 .main {
     position: relative;
     margin: 0 auto;
     width: 50%;
-    min-width: 375px;
+    min-width: 373px;
     height: 36vw;
     min-height: 270px;
 }
@@ -33,21 +25,22 @@ body {
     left: 14%;
     margin: 0 auto;
     display: inline-block;
-    width: 72%;
+    width: 73%;
     height: 100%;
 }
 .row {
-    border-bottom: 1px solid rgba(251, 255, 254, 0.8);
-    margin-bottom: -1px;
+    border-bottom: 4px solid rgba(251, 255, 254, .8);
+  
     width: 100%;
-    height: 11.11111%
+    height: 11.11111%;
+   
 }
 .row:nth-child(3n) {
-    border-bottom: 6px solid rgba(251, 255, 254, 0.8);
-    margin-bottom: -2px
+    border-bottom: 4px solid rgba(251, 255, 254, 0.8);
+  
 }
 .row:nth-child(1) {
-    border-top: 6px solid rgba(251, 255, 254, 0.8);
+    border-top: 4px solid rgba(251, 255, 254, 0.8);
 }
 button {
     padding: 0
@@ -69,10 +62,11 @@ button:focus {
     cursor: pointer;
 }
 .square:nth-child(3n) {
-    border-right: 6px solid rgba(251, 255, 254, 0.8);
+    border-right: 4px solid rgba(251, 255, 254, 0.8);
 }
 .square:nth-child(1) {
-    border-left: 6px solid rgba(251, 255, 254, 0.8);
+    border-left: 4px solid rgba(251, 255, 254, 0.8);
+    
 }
 .highlight {
     background-color: rgba(52, 168, 83, 0.2);
@@ -119,14 +113,14 @@ button:focus {
     height: 4vw;
     min-height: 30px;
     margin-top: 4px;
-    padding: 0;
+    padding: 15px;
 }
 .choice{
     width: 11.111%;
     height: 100%;
     display: inline-block;
     background: whitesmoke;
-    font-size: 1.5em;
+    font-size: 2.0em;
     color: black;
     border: 1px dashed rgba(251, 255, 254, 0.8);
     border-radius: 50%;
@@ -229,7 +223,7 @@ button:focus {
 
 }
 .solve {
-    left: 22%;
+    left: 45%;
 }
 .solve::before {
     content: '\2691';
@@ -242,13 +236,13 @@ button:focus {
 }
 
 .delete {
-    left: 22%;
+    left: 5%;
 }
 .delete::before {
     content: '\2702';
     color: black;
     
-    font-size: 1.8em
+    font-size: 2.5em
 }
 
 /*info block*/
@@ -335,13 +329,53 @@ button:focus {
 }
 @media screen and (max-width: 600px) {
     .check::before {
-        font-size: 1em
+        font-size: 1em;
+        
     }
     .hint::before {
         font-size: 1em;
     }
     .checktext {
         font-size: 1em
+    }
+    .delete::before {
+    font-size: 1.3em;
+
+    }
+
+    .check {
+        bottom: -70%;
+        width: 100%;
+        height: 19.44%;
+        font-size: 2em;
+        transition: background-color 0.5s;
+        left:225%;
+    }
+
+    .hint {
+        bottom: -70%;
+        width: 100%;
+        height: 19.44%;
+        font-size: 2em;
+        transition: background-color 0.5s;
+    right:225%;
+    }
+
+    .solve {
+        width: 50%;
+        height: 9.72%;
+        bottom: -68%;
+        left: -80%;
+    
+    
+    }
+
+    .delete {
+        width: 50%;
+        height: 9.72%;
+        bottom: -68%;
+        left: 130%;
+    
     }
 }
 #bt1::after {
