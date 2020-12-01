@@ -2,14 +2,9 @@ import React, { Component } from 'react';
 import sudokus from './Difficulty'
 import SudokuGenerator from './SudokuGenerator'
 import Board from './Board'
-
-
-
-
+import './index.css'
 
 class Game extends Component {
-
-    // set props for app
     constructor(props) {
         super(props)
         this.check = this.check.bind(this)
@@ -17,8 +12,6 @@ class Game extends Component {
         this.help = this.help.bind(this)
         this.handleClick = this.handleClick.bind(this)
     }
-
-    // Generate intital state of the game
     generate(level) {
         var puzzles
         switch (level) {
@@ -38,7 +31,7 @@ class Game extends Component {
                 puzzles = sudokus.verytough
                 break
             default:
-                puzzles = sudokus.hell
+                puzzles = sudokus.easy
         }
         var grid = puzzles[Math.floor(Math.random() * puzzles.length)]
             , sudoku = new SudokuGenerator(grid).generate()
@@ -66,13 +59,9 @@ class Game extends Component {
             conflict: new Set()
         })
     }
-
-    // default is easy
-    UNSAFE_componentWillMount() {
+    componentWillMount() {
         this.generate('easy')
     }
-
-    // find all possible empty squares
     checkPossible(i, j) {
         var values = this.state.values
         var allPossible = new Set([...'123456789'])
@@ -102,8 +91,6 @@ class Game extends Component {
         }
         return allPossible
     }
-
-    // filter for new state
     filter(value) {
         var values = this.state.values
         var filter = new Set()
@@ -120,8 +107,6 @@ class Game extends Component {
             chosen: null
         })
     }
-
-    // highlight rows and columns that correspond to your input field
     highlight(i, j) {
         var values = this.state.values
         var highlight = new Set()
@@ -149,8 +134,6 @@ class Game extends Component {
             filter: new Set()
         })
     }
-
-    // get help if needed
     help() {
         var solution = this.solution,
             values = this.state.values.slice(),
@@ -183,14 +166,11 @@ class Game extends Component {
             })
         }
     }
-    // reset the check for the state
     check() {
         this.setState({
             check: true
         })
     }
-
-    // solve puzzle for user
     solve() {
         if (this.state.peep) {
             return
@@ -209,8 +189,6 @@ class Game extends Component {
         }
 
     }
-
-    // handle click for input position and checks
     handleClick(i, j) {
         var values = this.state.values.slice()
         var thisvalue = values[i].slice()
@@ -229,8 +207,6 @@ class Game extends Component {
             });
         }
     }
-
-    // handle click for number inputs to field
     handleNumsClick(i) {
         if (this.state.peep) { return }
         var chosen = this.state.chosen
@@ -273,7 +249,7 @@ class Game extends Component {
                 }
             )
             if (!this.state.peep && values.toString() === this.solution.toString()) {
-                alert('Congrats!')
+                alert('恭喜你，完成了这个难题！')
                 this.setState({
                     peep: true
                 })
@@ -293,7 +269,7 @@ class Game extends Component {
         })
         return (
             <div className="game">
-              
+
                 <ul className="controls">
                     {controls}
                 </ul>
@@ -320,7 +296,7 @@ class Game extends Component {
                 <ul className="choices">
                     {choices}
                 </ul>
-                
+
             </div>
         );
     }

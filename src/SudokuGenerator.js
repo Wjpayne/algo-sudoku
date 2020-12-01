@@ -1,4 +1,3 @@
-
 class SudokuGenerator {
     constructor(grid) {
         this.grid = grid
@@ -140,4 +139,4 @@ class SudokuGenerator {
         return [puzzle, solution]
     }
 }
-export default SudokuGenerator
+export default SudokuGenerator 
